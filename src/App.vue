@@ -1,7 +1,9 @@
 <template>
-  <div class="container mt-5">
+  <div class="body border border-secondary">
     <TheHeader />
-    <router-view />
+    <div class="container mt-5">
+      <router-view />
+    </div>
     <TheFooter />
   </div>
 </template>
@@ -19,3 +21,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.body {
+  width: 800px;
+  height: 600px;
+}
+</style>
