@@ -1,5 +1,5 @@
 <template>
-  <h1>Main View</h1>
+  <div class="h4">Main View</div>
   <ThinBar :duration="duration" />
   <LabelBar :duration="duration" />
   <ProgressBar :amount="duration" :max="100" />

@@ -1,7 +1,7 @@
 <template>
   <div class="body border border-secondary">
     <TheHeader />
-    <div class="container mt-5">
+    <div class="container">
       <router-view />
     </div>
     <TheFooter />
