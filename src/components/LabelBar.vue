@@ -1,7 +1,6 @@
 <template>
   <div class="bar-wrapper">
-    <div class="text-center label"></div>
-    <div class="progress position-relative" style="height: 2px">
+    <div class="progress position-relative" style="width: 100px">
       <div
         class="progress-bar js-action-bar"
         role="progressbar"
@@ -9,19 +8,12 @@
           width: `${progress}%`,
           '-webkit-transition': `${transition}`
         }"
-      ></div>
-    </div>
-  </div>
-  <div class="progress position-relative" style="width: 100px">
-    <div
-      class="progress-bar js-action-bar"
-      role="progressbar"
-      :style="{ width: `${progress}%`, '-webkit-transition': `${transition}` }"
-    >
-      <span
-        class="justify-content-center d-flex position-absolute w-100 text-white"
-        >Label ({{ duration }})</span
       >
+        <span
+          class="justify-content-center d-flex position-absolute w-100 text-white"
+          >Label ({{ duration }})</span
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -32,8 +24,7 @@ export default {
   data: function () {
     return {
       progress: 0,
-      transition: `none`,
-      interval: null
+      transition: `none`
     };
   },
   props: {

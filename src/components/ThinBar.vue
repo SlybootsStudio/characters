@@ -20,8 +20,7 @@ export default {
   data: function () {
     return {
       progress: 0,
-      transition: `none`,
-      interval: null
+      transition: `none`
     };
   },
   props: {

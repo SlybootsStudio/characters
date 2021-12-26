@@ -2,6 +2,7 @@
   <h1>Main View</h1>
   <ThinBar :duration="duration" />
   <LabelBar :duration="duration" />
+  <ProgressBar :amount="duration" :max="100" />
   <button @click="upgrade()" class="btn btn-sm btn-primary">Upgrade</button>
 </template>
 
@@ -9,6 +10,7 @@
 // @ is an alias to /src
 import ThinBar from "@/components/ThinBar.vue";
 import LabelBar from "@/components/LabelBar.vue";
+import ProgressBar from "@/components/ProgressBar.vue";
 
 export default {
   name: "Main",
@@ -19,7 +21,8 @@ export default {
   },
   components: {
     ThinBar,
-    LabelBar
+    LabelBar,
+    ProgressBar
   },
   methods: {
     upgrade() {
