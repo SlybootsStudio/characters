@@ -1,9 +1,17 @@
 <template>
   <div class="h4">Main View</div>
   <ThinBar :duration="duration" />
+  <br />
   <LabelBar :duration="duration" />
+  <br />
   <ProgressBar :amount="duration" :max="100" />
+  <br />
   <button @click="upgrade()" class="btn btn-sm btn-primary">Upgrade</button>
+  <br />
+  <hr />
+  <br />
+  <LootChest :itemIds="itemIds" :draws="1" class="mb-3" />
+  <LootChest :itemIds="itemIds" :draws="2" />
 </template>
 
 <script>
@@ -11,22 +19,27 @@
 import ThinBar from "@/components/ThinBar.vue";
 import LabelBar from "@/components/LabelBar.vue";
 import ProgressBar from "@/components/ProgressBar.vue";
+import LootChest from "@/components/LootChest.vue";
+
+import { LootBox } from "@/data/loot.js";
 
 export default {
   name: "Main",
   data() {
     return {
-      duration: 1
+      duration: 0,
+      itemIds: LootBox
     };
   },
   components: {
     ThinBar,
     LabelBar,
-    ProgressBar
+    ProgressBar,
+    LootChest
   },
   methods: {
     upgrade() {
-      this.duration = this.duration + 3;
+      this.duration = this.duration + 5;
     }
   }
 };

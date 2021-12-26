@@ -18,7 +18,6 @@
 <script>
 export default {
   name: "ProgressBar",
-  data: function () {},
   props: {
     amount: {
       type: Number,
