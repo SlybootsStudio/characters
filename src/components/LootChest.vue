@@ -9,7 +9,7 @@
       <div v-for="item in items" :key="item.id" class="row mb-1">
         <div class="col">{{ item.id }}</div>
         <div class="col" :class="`text-${item.rarityColor}`">
-          {{ item.label }}
+          {{ item.label }}<span v-if="item.unique">*</span>
         </div>
         <div class="col">{{ item.chance }}%</div>
       </div>
@@ -21,7 +21,6 @@
         <div class="col" :class="`text-${item.rarityColor}`">
           {{ item.label }}
         </div>
-        <div class="col">{{ item.chance }}%</div>
       </div>
     </div>
   </div>
@@ -42,8 +41,30 @@ export default {
     draws: Number
   },
   computed: {
+    resultsIds() {
+      let ids = this.results.map((item) => item.id);
+
+      if (ids.length) {
+        return [...new Set(ids)];
+      }
+
+      return [];
+    },
+    filteredItemIds() {
+      return this.itemIds.filter((item) => {
+        if (!item?.unique) {
+          return true;
+        }
+
+        if (this.resultsIds.includes(item.id)) {
+          return false;
+        }
+
+        return true;
+      });
+    },
     totalItemsCount() {
-      let droprates = this.itemIds.map((item) => item.droprate);
+      let droprates = this.filteredItemIds.map((item) => item.droprate);
 
       const reducer = (previousValue, currentValue) =>
         previousValue + currentValue;
@@ -66,7 +87,7 @@ export default {
       return pool;
     },
     items() {
-      let arr = this.itemIds.map((item) => {
+      let arr = this.filteredItemIds.map((item) => {
         let itemMeta = ITEMS.find((ITEM) => {
           return ITEM.id == item.id;
         });
@@ -88,16 +109,18 @@ export default {
   methods: {
     open() {
       for (let x = 0; x < this.draws; x += 1) {
-        this.getItem();
+        let item = this.getItem();
+
+        // todo, quantity
+        this.results.push(item);
       }
     },
     getItem() {
       let index = Math.floor(Math.random() * this.totalItemsCount);
-      console.log(index);
 
       let item = this.totalItems[index];
 
-      console.log(item.label);
+      return item;
     }
   }
 };

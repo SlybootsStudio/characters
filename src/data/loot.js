@@ -19,7 +19,8 @@ export const RARITY_COLOR = {
 export const ITEM_ID = {
   stone: 0,
   iron: 1,
-  steel: 2
+  steel: 2,
+  magicSword: 3
 };
 
 export const ITEMS = [
@@ -37,6 +38,12 @@ export const ITEMS = [
     id: ITEM_ID.steel,
     label: "Steel",
     rarity: RARITY.rare
+  },
+  {
+    id: ITEM_ID.magicSword,
+    label: "Magic Sword",
+    rarity: RARITY.epic,
+    unique: true
   }
 ];
 
@@ -54,5 +61,10 @@ export const LootBox = [
   {
     id: ITEM_ID.steel,
     droprate: 1
+  },
+  {
+    id: ITEM_ID.magicSword,
+    droprate: 5,
+    unique: true
   }
 ];
