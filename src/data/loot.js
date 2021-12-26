@@ -23,6 +23,10 @@ export const ITEM_ID = {
   magicSword: 3
 };
 
+export const SET_ID = {
+  goblin: 0
+};
+
 export const ITEMS = [
   {
     id: ITEM_ID.stone,
@@ -44,6 +48,47 @@ export const ITEMS = [
     label: "Magic Sword",
     rarity: RARITY.epic,
     unique: true
+  },
+  {
+    id: ITEM_ID.goblinSword,
+    label: "Goblin Sword",
+    rarity: RARITY.epic,
+    unique: true
+  },
+  {
+    id: ITEM_ID.goblinSword2,
+    label: "Goblin Sword II",
+    rarity: RARITY.epic,
+    unique: true
+  },
+  {
+    id: ITEM_ID.goblinSword3,
+    label: "Goblin Sword III",
+    rarity: RARITY.epic,
+    unique: true
+  }
+];
+
+export const SETS = [
+  {
+    id: SET_ID.goblin,
+    items: [
+      {
+        id: ITEM_ID.goblinSword,
+        droprate: 1,
+        unique: true
+      },
+      {
+        id: ITEM_ID.goblinSword2,
+        droprate: 1,
+        unique: true
+      },
+      {
+        id: ITEM_ID.goblinSword3,
+        droprate: 1,
+        unique: true
+      }
+    ]
   }
 ];
 
@@ -52,7 +97,7 @@ export const LootBox = [
     id: ITEM_ID.stone,
     quantityMin: 3,
     quantityMax: 5,
-    droprate: 10
+    droprate: 5
   },
   {
     id: ITEM_ID.iron,
@@ -60,11 +105,33 @@ export const LootBox = [
   },
   {
     id: ITEM_ID.steel,
-    droprate: 1
+    droprate: 2
   },
   {
     id: ITEM_ID.magicSword,
-    droprate: 5,
+    droprate: 40,
+    unique: true
+  }
+];
+
+export const LootBox2 = [
+  {
+    id: ITEM_ID.stone,
+    quantityMin: 3,
+    quantityMax: 5,
+    droprate: 5
+  },
+  {
+    id: ITEM_ID.iron,
+    droprate: 3
+  },
+  {
+    id: ITEM_ID.steel,
+    droprate: 2
+  },
+  {
+    id: ITEM_ID.magicSword,
+    droprate: 1,
     unique: true
   }
 ];

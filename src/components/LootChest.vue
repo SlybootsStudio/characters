@@ -1,7 +1,8 @@
 <template>
   <div class="card">
     <div class="card-header d-flex justify-content-between">
-      <span class="fw-bold">LootChest ({{ draws }})</span
+      <span class="fw-bold"
+        >LootChest ({{ draws }}) - ({{ totalItemsCount }})</span
       ><button @click="open()" class="btn btn-sm btn-primary">Open</button>
     </div>
     <div class="card-body">
@@ -38,7 +39,8 @@ export default {
   },
   props: {
     itemIds: Array,
-    draws: Number
+    draws: Number,
+    power: Number
   },
   computed: {
     resultsIds() {
@@ -64,7 +66,9 @@ export default {
       });
     },
     totalItemsCount() {
-      let droprates = this.filteredItemIds.map((item) => item.droprate);
+      let droprates = this.filteredItemIds.map((item) =>
+        Math.pow(item.droprate, this.power)
+      );
 
       const reducer = (previousValue, currentValue) =>
         previousValue + currentValue;
@@ -79,7 +83,7 @@ export default {
       let pool = [];
 
       this.items.forEach((item) => {
-        for (let x = 0; x < item.droprate; x += 1) {
+        for (let x = 0; x < Math.pow(item.droprate, this.power); x += 1) {
           pool.push(item);
         }
       });
@@ -97,8 +101,11 @@ export default {
         item.label = itemMeta.label;
         item.rarityColor = rarityColor;
 
-        const chance = (100 / this.totalItemsCount) * item.droprate;
+        const chance =
+          (100 / this.totalItemsCount) * Math.pow(item.droprate, this.power);
         item.chance = chance.toFixed(2);
+
+        console.log(this.totalItemsCount, item.droprate, chance);
 
         return item;
       });
@@ -112,7 +119,7 @@ export default {
         let item = this.getItem();
 
         // todo, quantity
-        this.results.push(item);
+        this.results.unshift(item);
       }
     },
     getItem() {
