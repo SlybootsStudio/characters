@@ -1,7 +1,7 @@
 <template>
   <div class="bar-wrapper">
-    <div class="text-center">{{ label }} ({{ duration }})</div>
-    <div class="progress position-relative thin-bar">
+    <div v-if="thin" class="text-center">{{ label }} ({{ duration }})</div>
+    <div class="progress position-relative" :class="{ 'thin-bar': thin }">
       <div
         class="progress-bar"
         role="progressbar"
@@ -9,14 +9,20 @@
           width: `${progress}%`,
           '-webkit-transition': `${transition}`
         }"
-      ></div>
+      >
+        <span
+          v-if="!thin"
+          class="justify-content-center d-flex position-absolute w-100 text-white"
+          >{{ label }} ({{ duration }})</span
+        >
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ThinBar",
+  name: "AnimatedBar",
   data() {
     return {
       progress: 0,
@@ -28,6 +34,10 @@ export default {
     duration: {
       type: Number,
       default: 1
+    },
+    thin: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

@@ -31,7 +31,10 @@ export default {
   computed: {
     progress() {
       let progress = (100 / this.maximum) * this.amount;
-      //progress = Math.round(progress);
+      if (progress > 100) {
+        progress = 100;
+      }
+      progress = Math.round(progress);
       return progress;
     }
   }

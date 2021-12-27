@@ -44,11 +44,9 @@ export default {
       this.transition = `width ${this.duration}s linear 0s`;
     },
     Animate() {
-      // Animate the Actions Bar
       this.clearTransition();
-      setTimeout(() => this.beginTransition(), 10);
+      setTimeout(() => this.beginTransition(), 5);
 
-      //this.$store.dispatch("/* function */");
       this.$emit("complete");
     }
   },
