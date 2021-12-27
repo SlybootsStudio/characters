@@ -1,6 +1,6 @@
 <template>
   <div class="h4">Main View</div>
-  <ThinBar :duration="duration" />
+  <ThinBar title="Label" :duration="duration" />
   <br />
   <LabelBar :duration="duration" />
   <br />
@@ -16,7 +16,10 @@
   <hr />
   <br />
   <UpgradeSimple :boost="itemIds2" />
-  <UpgradeComplex :boost="itemIds2" />
+  <br />
+  <hr />
+  <br />
+  <Generator :boost="itemIds2" />
 </template>
 
 <script>
@@ -28,6 +31,8 @@ import LootChest from "@/components/LootChest.vue";
 
 import UpgradeSimple from "@/components/UpgradeSimple.vue";
 
+import Generator from "@/components/Generator.vue";
+
 import { LootBox, LootBox2 } from "@/data/loot.js";
 
 export default {
@@ -35,6 +40,7 @@ export default {
   data() {
     return {
       duration: 0,
+      gold: 0,
       itemIds: LootBox,
       itemIds2: LootBox2
     };
@@ -44,11 +50,15 @@ export default {
     LabelBar,
     ProgressBar,
     LootChest,
-    UpgradeSimple
+    UpgradeSimple,
+    Generator
   },
   methods: {
     upgrade() {
       this.duration = this.duration + 5;
+    },
+    addGold(amount) {
+      this.gold += amount;
     }
   }
 };

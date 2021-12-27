@@ -14,19 +14,6 @@
       </button>
     </div>
     <div class="card-body">
-      <div class="row">
-        <div class="col">Required</div>
-        <div class="col">Reward<span
-        :class="{
-          'text-danger': resources < cost,
-          'text-success': resources >= cost
-        }"
-        >{{ resources.toLocaleString() }}</span
-      >
-      / {{ cost.toLocaleString() }} Gold
-    </div></div>
-      </div>
-
       <span
         :class="{
           'text-danger': resources < cost,
