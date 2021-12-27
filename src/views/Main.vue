@@ -16,6 +16,7 @@
   <hr />
   <br />
   <UpgradeSimple :boost="itemIds2" />
+  <UpgradeComplex :boost="itemIds2" />
 </template>
 
 <script>
