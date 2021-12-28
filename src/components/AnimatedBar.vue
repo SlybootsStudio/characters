@@ -1,6 +1,6 @@
 <template>
   <div class="bar-wrapper">
-    <div v-if="thin" class="text-center">{{ label }} ({{ duration }})</div>
+    <div v-if="thin" class="text-center">{{ label }}</div>
     <div class="progress position-relative" :class="{ 'thin-bar': thin }">
       <div
         class="progress-bar"
@@ -13,7 +13,7 @@
         <span
           v-if="!thin"
           class="justify-content-center d-flex position-absolute w-100 text-white"
-          >{{ label }} ({{ duration }})</span
+          >{{ label }}</span
         >
       </div>
     </div>
@@ -38,6 +38,10 @@ export default {
     thin: {
       type: Boolean,
       default: false
+    },
+    looped: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -49,17 +53,25 @@ export default {
       this.progress = 0;
       this.transition = `width ${this.duration}s linear 0s`;
     },
-    Animate() {
+    animate() {
       this.clearTransition();
-      setTimeout(() => this.beginTransition(), 5);
+      setTimeout(() => this.beginTransition(), 20);
 
       this.$emit("complete");
+
+      setTimeout(() => this.animate(), this.duration * 1000);
     }
   },
-
   watch: {
     duration() {
-      this.Animate();
+      if (!this.looped) {
+        this.animate();
+      }
+    }
+  },
+  created() {
+    if (this.looped) {
+      this.animate();
     }
   }
 };

@@ -1,14 +1,16 @@
 <template>
   <div class="bar-wrapper">
-    <div class="progress position-relative" style="width: 100px">
+    <div v-if="thin" class="text-center">{{ label }} ({{ amount }})</div>
+    <div class="progress position-relative" :class="{ 'thin-bar': thin }">
       <div
-        class="progress-bar js-action-bar"
+        class="progress-bar"
         role="progressbar"
         :style="{ width: `${progress}%` }"
       >
         <span
+          v-if="!thin"
           class="justify-content-center d-flex position-absolute w-100 text-white"
-          >Label ({{ progress }})</span
+          >{{ label }} ({{ amount }})</span
         >
       </div>
     </div>
@@ -19,18 +21,23 @@
 export default {
   name: "ProgressBar",
   props: {
+    label: String,
     amount: {
       type: Number,
       default: 0
     },
-    maximum: {
+    max: {
       type: Number,
       default: 100
+    },
+    thin: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     progress() {
-      let progress = (100 / this.maximum) * this.amount;
+      let progress = (100 / this.max) * this.amount;
       if (progress > 100) {
         progress = 100;
       }
@@ -42,11 +49,7 @@ export default {
 </script>
 
 <style scoped>
-.bar-wrapper {
-  width: 100px;
-}
-
-.label {
-  font-size: 0.85em;
+.thin-bar {
+  height: 2px;
 }
 </style>

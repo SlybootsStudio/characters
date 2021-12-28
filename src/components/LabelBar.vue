@@ -43,7 +43,7 @@ export default {
       this.progress = 0;
       this.transition = `width ${this.duration}s linear 0s`;
     },
-    Animate() {
+    animate() {
       this.clearTransition();
       setTimeout(() => this.beginTransition(), 5);
 
@@ -52,7 +52,7 @@ export default {
   },
   watch: {
     duration() {
-      this.Animate();
+      this.animate();
     }
   }
 };

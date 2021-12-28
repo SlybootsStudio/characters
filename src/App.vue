@@ -4,7 +4,7 @@
     <div class="container">
       <router-view />
     </div>
-    <TheFooter />
+    <TheFooter v-if="0" />
   </div>
 </template>
 

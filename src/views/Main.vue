@@ -7,13 +7,15 @@
       <br />
     </div>
     <div class="col">
-      <AnimatedBar label="Animated Bar" :duration="duration" />
-      <br />
       <AnimatedBar
         label="Animated Bar - Thin"
         :duration="duration"
-        thin="true"
+        :thin="true"
       />
+      <br />
+      <AnimatedBar label="Animated Bar" :duration="duration" />
+      <br />
+
       <br />
       <br />
 
@@ -26,7 +28,17 @@
   </button>
   <br />
   <hr />
+  <div class="alert alert-secondary">{{ gold.toLocaleString() }} Gold</div>
+  <hr />
   <br />
+
+  <Generator
+    label="Miner"
+    resourceLabel="Gold"
+    :resource="gold"
+    @addResource="addGold($event)"
+  />
+  <!--
   <LootChest :itemIds="itemIds" :draws="1" :power="1" class="mb-3" />
   <LootChest :itemIds="itemIds2" :draws="1" :power="3" />
   <br />
@@ -36,7 +48,9 @@
   <br />
   <hr />
   <br />
-  <Generator :boost="itemIds2" />
+
+
+  -->
 </template>
 
 <script>
@@ -47,9 +61,9 @@ import ProgressBar from "@/components/ProgressBar.vue";
 
 import AnimatedBar from "@/components/AnimatedBar.vue";
 
-import LootChest from "@/components/LootChest.vue";
+//import LootChest from "@/components/LootChest.vue";
 
-import UpgradeSimple from "@/components/UpgradeSimple.vue";
+//import UpgradeSimple from "@/components/UpgradeSimple.vue";
 
 import Generator from "@/components/Generator.vue";
 
@@ -60,7 +74,7 @@ export default {
   data() {
     return {
       duration: 0,
-      gold: 0,
+      gold: 88888,
       itemIds: LootBox,
       itemIds2: LootBox2
     };
@@ -68,11 +82,11 @@ export default {
   components: {
     ThinBar,
     LabelBar,
+    AnimatedBar,
     ProgressBar,
-    LootChest,
-    UpgradeSimple,
-    Generator,
-    AnimatedBar
+    //LootChest,
+    //UpgradeSimple,
+    Generator
   },
   methods: {
     increaseDuration() {

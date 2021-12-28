@@ -67,7 +67,7 @@ export default {
     },
     totalItemsCount() {
       let droprates = this.filteredItemIds.map((item) =>
-        Math.pow(item.droprate, this.power)
+        Math.round(Math.pow(item.droprate, this.power))
       );
 
       const reducer = (previousValue, currentValue) =>
@@ -83,7 +83,11 @@ export default {
       let pool = [];
 
       this.items.forEach((item) => {
-        for (let x = 0; x < Math.pow(item.droprate, this.power); x += 1) {
+        for (
+          let x = 0;
+          x < Math.round(Math.pow(item.droprate, this.power));
+          x += 1
+        ) {
           pool.push(item);
         }
       });
@@ -102,7 +106,8 @@ export default {
         item.rarityColor = rarityColor;
 
         const chance =
-          (100 / this.totalItemsCount) * Math.pow(item.droprate, this.power);
+          (100 / this.totalItemsCount) *
+          Math.round(Math.pow(item.droprate, this.power));
         item.chance = chance.toFixed(2);
 
         console.log(this.totalItemsCount, item.droprate, chance);

@@ -1,30 +1,29 @@
 <template>
-  <div class="fw-bold">{{ title }}</div>
   <div class="row">
-    <div class="col">
-      <span class="fw-bold">Lvl {{ level }}</span>
-    </div>
-    <div class="col">
+    <div class="col text-end" v-if="level < maxLevel">
       <span
         :class="{
-          'text-danger': resources < cost,
-          'text-success': resources >= cost
+          'text-danger': resource < cost,
+          'text-success': resource >= cost
         }"
-        >{{ resources.toLocaleString() }}</span
+        >{{ resource.toLocaleString() }}</span
       >
-      / {{ cost.toLocaleString() }} Gold
+      / {{ cost.toLocaleString() }} {{ resourceLabel }}
     </div>
-    <div class="col text-end">
+    <div class="col text-end" v-if="level < maxLevel">
       <button
-        @click="buy()"
+        @click="upgrade()"
         class="btn btn-sm text-uppercase"
         :class="{
-          'btn-outline-secondary disabled': resources < cost,
-          'btn-outline-primary': resources >= cost
+          'btn-outline-secondary disabled': resource < cost,
+          'btn-outline-primary': resource >= cost
         }"
       >
-        Upgrade
+        {{ label }}
       </button>
+    </div>
+    <div class="col text-end" v-if="level == maxLevel">
+      <span class="badge bg-info">MAX</span>
     </div>
   </div>
 </template>
@@ -34,22 +33,34 @@ export default {
   name: "UpgradeSimple",
   data: function () {
     return {
-      title: "Speed",
-      level: 1,
-      power: 1,
-      base: 100,
-      resources: 10000
+      level: 1
     };
   },
-  props: {},
+  props: {
+    label: String,
+    resourceLabel: String,
+    resource: Number,
+    scale: {
+      type: Number,
+      default: 1
+    },
+    base: {
+      type: Number,
+      default: 100
+    },
+    maxLevel: {
+      type: Number,
+      default: 10
+    }
+  },
   computed: {
     cost() {
-      return Math.round(Math.pow(this.level * this.base, this.power));
+      return Math.round(Math.pow(this.level * this.base, this.scale));
     }
   },
   methods: {
-    buy() {
-      this.resources -= this.cost;
+    upgrade() {
+      this.$emit("upgrade", this.cost);
       this.level += 1;
     }
   }
