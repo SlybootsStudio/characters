@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col text-end" v-if="level < maxLevel">
+    <div class="col text-end" v-if="canBuy">
       <span
         :class="{
           'text-danger': resource < cost,
@@ -10,7 +10,7 @@
       >
       / {{ cost.toLocaleString() }} {{ resourceLabel }}
     </div>
-    <div class="col text-end" v-if="level < maxLevel">
+    <div class="col text-end" v-if="canBuy">
       <button
         @click="upgrade()"
         class="btn btn-sm text-uppercase"
@@ -22,7 +22,7 @@
         {{ label }}
       </button>
     </div>
-    <div class="col text-end" v-if="level == maxLevel">
+    <div class="col text-end" v-if="!canBuy">
       <span class="badge bg-info">MAX</span>
     </div>
   </div>
@@ -55,7 +55,20 @@ export default {
   },
   computed: {
     cost() {
-      return Math.round(Math.pow(this.level * this.base, this.scale));
+      if (this.scale) {
+        return Math.round(Math.pow(this.level * this.base, this.scale));
+      } else {
+        return this.base;
+      }
+    },
+    canBuy() {
+      if (this.maxLevel == 0) {
+        return true;
+      } else if (this.level < this.maxLevel) {
+        return true;
+      }
+
+      return false;
     }
   },
   methods: {

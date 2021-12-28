@@ -34,6 +34,7 @@
             :resource="resource"
             :resourceLabel="resourceLabel"
             :maxLevel="10"
+            :scale="0"
             @upgrade="decreaseDuration($event)"
           />
         </div>
@@ -62,11 +63,6 @@
       </div>
     </div>
   </div>
-  {{ getNextLevel(1) }}<br />
-  {{ getNextLevel(2) }}<br />
-  {{ getNextLevel(3) }}<br />
-  {{ getNextLevel(4) }}<br />
-  {{ getNextLevel(5) }}<br />
 </template>
 
 <script>
@@ -83,7 +79,7 @@ export default {
   },
   data() {
     return {
-      duration: 2,
+      duration: 3,
       income: 1,
       experience: 0,
       experienceBase: 5,

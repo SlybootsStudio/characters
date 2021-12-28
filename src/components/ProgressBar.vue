@@ -10,7 +10,7 @@
         <span
           v-if="!thin"
           class="justify-content-center d-flex position-absolute w-100 text-white"
-          >{{ label }} ({{ amount }})</span
+          >{{ label }} ({{ amount }} / {{ max }})</span
         >
       </div>
     </div>

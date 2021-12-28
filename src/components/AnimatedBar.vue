@@ -25,6 +25,8 @@ export default {
   name: "AnimatedBar",
   data() {
     return {
+      elapsed: 0, // used for loop
+      previousTimestamp: 0, // used for loop
       progress: 0,
       transition: `none`
     };
@@ -55,11 +57,24 @@ export default {
     },
     animate() {
       this.clearTransition();
-      setTimeout(() => this.beginTransition(), 20);
+      setTimeout(() => this.beginTransition(), 100);
 
       this.$emit("complete");
+    },
+    loop(timestamp) {
+      if (this.previousTimestamp === null) {
+        this.previousTimestamp = timestamp;
+      }
+      this.elapsed += (timestamp - this.previousTimestamp) / 1000;
 
-      setTimeout(() => this.animate(), this.duration * 1000);
+      if (this.elapsed >= this.duration) {
+        this.animate();
+        this.elapsed -= this.duration;
+      }
+
+      this.previousTimestamp = timestamp;
+
+      window.requestAnimationFrame(this.loop);
     }
   },
   watch: {
@@ -72,6 +87,7 @@ export default {
   created() {
     if (this.looped) {
       this.animate();
+      window.requestAnimationFrame(this.loop);
     }
   }
 };
