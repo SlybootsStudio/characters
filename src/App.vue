@@ -1,12 +1,14 @@
 <template>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col">
-        <TheHeader />
-        <router-view />
+  <div class="kong border">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col">
+          <TheHeader />
+          <router-view />
+        </div>
       </div>
+      <TheFooter />
     </div>
-    <TheFooter />
   </div>
 </template>
 
@@ -24,4 +26,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.kong {
+  width: 800px;
+  height: 600px;
+  overflow: hidden;
+}
+</style>

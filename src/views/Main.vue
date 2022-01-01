@@ -2,17 +2,18 @@
   <LootChest :itemIds="itemIds" :draws="1" :power="1" class="mb-3" />
   <LootChest :itemIds="itemIds2" :draws="1" :power="3" />
 
-  <UpgradeSimple
+  <!-- <UpgradeSimple
     label="Buy Pie"
     :resource="gold"
     :resourceLabel="Gold"
     @upgrade="addResource($event)"
   />
+  -->
 </template>
 
 <script>
 import LootChest from "@/components/LootChest.vue";
-import UpgradeSimple from "@/components/UpgradeSimple.vue";
+//import UpgradeSimple from "@/components/UpgradeSimple.vue";
 
 import { LootBox, LootBox2 } from "@/data/loot.js";
 
@@ -27,8 +28,8 @@ export default {
     };
   },
   components: {
-    LootChest,
-    UpgradeSimple
+    LootChest
+    ////  UpgradeSimple
   },
   methods: {
     increaseDuration() {

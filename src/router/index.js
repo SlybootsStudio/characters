@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Main from "@/views/Game";
-import Mining from "@/views/Mining";
-import Wizard from @views/Wizard";
-
+import Main from "@/views/Main";
+//import Mining from "@/views/Mining";
+//import Wizard from @views/Wizard";
 
 const routes = [
   {
