@@ -1,10 +1,12 @@
 <template>
-  <div class="body border border-secondary">
-    <TheHeader />
-    <div class="container">
-      <router-view />
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col">
+        <TheHeader />
+        <router-view />
+      </div>
     </div>
-    <TheFooter v-if="0" />
+    <TheFooter />
   </div>
 </template>
 
@@ -22,9 +24,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.body {
-  width: 800px;
-  height: 600px;
-}
-</style>
+<style scoped></style>

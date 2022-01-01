@@ -16,9 +16,6 @@
       <AnimatedBar label="Animated Bar" :duration="duration" />
       <br />
 
-      <br />
-      <br />
-
       <ProgressBar label="Progress Bar" :amount="duration" :max="100" />
       <br />
     </div>
@@ -26,16 +23,6 @@
   <button @click="increaseDuration()" class="btn btn-sm btn-primary">
     Increase Duration
   </button>
-  <br />
-  <hr />
-  <div class="alert alert-secondary">{{ gold.toLocaleString() }} Gold</div>
-  <hr />
-  <br />
-
-  <LootChest :itemIds="itemIds" :draws="1" :power="1" class="mb-3" />
-  <LootChest :itemIds="itemIds2" :draws="1" :power="3" />
-
-  <UpgradeSimple :boost="itemIds2" />
 </template>
 
 <script>
@@ -45,9 +32,6 @@ import LabelBar from "@/components/LabelBar.vue";
 import ProgressBar from "@/components/ProgressBar.vue";
 
 import AnimatedBar from "@/components/AnimatedBar.vue";
-
-import LootChest from "@/components/LootChest.vue";
-import UpgradeSimple from "@/components/UpgradeSimple.vue";
 
 import { LootBox, LootBox2 } from "@/data/loot.js";
 
@@ -65,9 +49,7 @@ export default {
     ThinBar,
     LabelBar,
     AnimatedBar,
-    ProgressBar,
-    LootChest,
-    UpgradeSimple
+    ProgressBar
   },
   methods: {
     increaseDuration() {
