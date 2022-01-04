@@ -6,7 +6,7 @@
     <AnimatedBar
       :duration="duration"
       :thin="true"
-      :looped="true"
+      :looped="false"
       @complete="addResource()"
     />
     <div class="card-body bg-light">

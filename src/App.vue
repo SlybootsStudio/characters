@@ -1,14 +1,10 @@
 <template>
+  <TheHeader />
+  <TheNavbar />
   <div class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col">
-        <TheHeader />
-        <TheNavbar />
-        <router-view />
-      </div>
-    </div>
-    <TheFooter v-if="0" />
+    <router-view />
   </div>
+  <TheFooter v-if="0" />
 </template>
 
 <script>
@@ -27,8 +23,4 @@ export default {
 };
 </script>
 
-<style>
-div {
-  border: 1px solid red;
-}
-</style>
+<style></style>
