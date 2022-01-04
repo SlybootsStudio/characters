@@ -9,6 +9,7 @@
       :duration="10"
       :income="1"
       :cost="15"
+      @addResource="addPuppies($event)"
     />
   </div>
 </template>
@@ -19,12 +20,16 @@ export default {
   name: "Main",
   data() {
     return {
-      puppies: 0
+      puppies: 100
     };
   },
   components: {
     Building
   },
-  methods: {}
+  methods: {
+    addPuppies(quantity) {
+      this.puppies += quantity;
+    }
+  }
 };
 </script>

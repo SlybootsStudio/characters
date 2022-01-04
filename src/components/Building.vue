@@ -7,9 +7,10 @@
       <div>{{ totalIncome }} {{ resourceLabel }} / {{ duration }}s</div>
     </div>
     <AnimatedBar
+      v-if="quantity > 0"
       :duration="duration"
       :thin="true"
-      :looped="false"
+      :looped="true"
       @complete="addResource()"
     />
     <div class="card-body bg-light">
@@ -17,11 +18,6 @@
         <div class="me-5">
           <Puppy />
         </div>
-        <!--<Puppy color="blue" />
-      <Puppy color="green" />
-      <Puppy color="yellow" />
-      <Puppy color="orange" />
-      <Puppy color="red" />-->
         <div class="content-wrapper w-100">
           <div class="mb-3">{{ description }}</div>
           <div class="mb-3">
@@ -37,7 +33,7 @@
                 :maxLevel="0"
                 :base="15"
                 :scale="1.1"
-                @upgrade="decreaseDuration($event)"
+                @upgrade="increaseQuantity($event)"
               />
             </div>
           </div>
@@ -93,9 +89,11 @@ export default {
   methods: {
     addResource() {
       console.log("add resource");
-      this.experience += 1;
       this.$emit("addResource", this.totalIncome);
-      //      this.resource += this.amountPerTick;
+    },
+    increaseQuantity(cost) {
+      this.$emit("addResource", -cost);
+      this.quantity += 1;
     }
   }
 };
