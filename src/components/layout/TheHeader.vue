@@ -1,5 +1,5 @@
 <template>
-  <div class="div justify-content-between border-bottom">
+  <div class="justify-content-between border-bottom">
     <div class="h5 p-1">{{ title }}</div>
   </div>
 </template>

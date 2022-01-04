@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Main / Inventory / Summary</h1>
+    <h1>Upgrades</h1>
   </div>
 </template>
 

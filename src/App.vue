@@ -1,15 +1,13 @@
 <template>
-  <div class="kong border">
-    <div class="container-fluid">
-      <div class="row justify-content-center">
-        <div class="col">
-          <TheHeader />
-          <TheNavbar />
-          <router-view />
-        </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col">
+        <TheHeader />
+        <TheNavbar />
+        <router-view />
       </div>
-      <TheFooter />
     </div>
+    <TheFooter v-if="0" />
   </div>
 </template>
 
@@ -29,10 +27,8 @@ export default {
 };
 </script>
 
-<style scoped>
-.kong {
-  width: 800px;
-  height: 600px;
-  overflow: hidden;
+<style>
+div {
+  border: 1px solid red;
 }
 </style>
