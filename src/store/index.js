@@ -24,6 +24,12 @@ export default createStore({
         commit("ADD_EARNED_PUPPIES", payload.amount);
         this.earnedPuppies += payload.amount;
       }
+    },
+    theButtonClick({ commit }) {
+      let amount = 1;
+
+      commit("ADD_PUPPIES", amount);
+      commit("ADD_EARNED_PUPPIES", amount);
     }
   },
   getters: {},
