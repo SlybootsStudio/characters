@@ -20,7 +20,5 @@ export default createStore({
   },
   actions: {},
   getters: {},
-  modules: {
-    Miners
-  }
+  modules: {}
 });

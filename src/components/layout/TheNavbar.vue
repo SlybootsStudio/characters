@@ -20,13 +20,13 @@
             <router-link class="btn btn-link" :to="{ name: 'Main' }"
               >Home</router-link
             >
-
+            <!--
             <router-link class="btn btn-link" :to="{ name: 'Generators' }"
               >Generators</router-link
             >
             <router-link class="btn btn-link" :to="{ name: 'Sinks' }"
               >Upgrades</router-link
-            ><!--
+            >--><!--
             <router-link class="btn btn-link" :to="{ name: 'Dragons' }"
               >My Dragon</router-link
             >
