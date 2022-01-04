@@ -89,10 +89,10 @@ export default {
   methods: {
     addResource() {
       console.log("add resource");
-      this.$emit("addResource", this.totalIncome);
+      this.$emit("addResource", { amount: this.totalIncome, isEarned: true });
     },
     increaseQuantity(cost) {
-      this.$emit("addResource", -cost);
+      this.$emit("addResource", { amount: -cost });
       this.quantity += 1;
     }
   }

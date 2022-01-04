@@ -2,23 +2,30 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    gold: 0
+    puppies: 1234,
+    earnedPuppies: 0
   },
   mutations: {
-    SET_GOLD(state, value) {
-      state.gold = value;
+    SET_PUPPIES(state, value) {
+      state.puppies = value;
     },
-    ADD_GOLD(state, value) {
-      state.gold += value;
+    ADD_PUPPIES(state, value) {
+      state.puppies += value;
     },
-    REMOVE_GOLD(state, value) {
-      state.gold -= value;
-      if (state.gold < 0) {
-        state.gold = 0;
+    ADD_EARNED_PUPPIES(state, value) {
+      state.earnedPuppies += value;
+    }
+  },
+  actions: {
+    addPuppies({ commit }, payload) {
+      commit("ADD_PUPPIES", payload.amount);
+
+      if (payload.isEarned) {
+        commit("ADD_EARNED_PUPPIES", payload.amount);
+        this.earnedPuppies += payload.amount;
       }
     }
   },
-  actions: {},
   getters: {},
   modules: {}
 });
