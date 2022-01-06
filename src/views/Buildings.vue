@@ -1,7 +1,6 @@
 <template>
   <div>
     <h4>Buildings</h4>
-    {{ puppies }} - {{ earnedPuppies }}
     <div class="mb-3">
       <Building
         label="Puppy Cage"

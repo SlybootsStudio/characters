@@ -3,7 +3,8 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     puppies: 1234,
-    earnedPuppies: 0
+    earnedPuppies: 0,
+    snacks: 4
   },
   mutations: {
     SET_PUPPIES(state, value) {

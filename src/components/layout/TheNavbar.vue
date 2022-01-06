@@ -34,14 +34,14 @@
           </div>
 
           <div class="navbar-md d-sm-none d-none d-md-block">
-            <router-link class="btn btn-secondary me-2" :to="{ name: 'Main' }"
+            <router-link class="btn btn-link me-2" :to="{ name: 'Main' }"
               >Home</router-link
             >
             
-            <router-link class="btn btn-link" :to="{ name: 'Buildings' }"
+            <router-link class="btn btn-link me-2" :to="{ name: 'Buildings' }"
               >Buildings</router-link
             >
-            <router-link class="btn btn-link" :to="{ name: 'Upgrades' }"
+            <router-link class="btn btn-link me-2" :to="{ name: 'Upgrades' }"
               >Upgrades</router-link
             >
             <router-link class="btn btn-link" :to="{ name: 'Achievements' }"
