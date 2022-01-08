@@ -33,6 +33,11 @@ export default createStore({
       commit("ADD_EARNED_PUPPIES", amount);
     }
   },
-  getters: {},
+  getters: {
+    puppiesPerClick(state) {
+      console.log(state);
+      return 3;
+    }
+  },
   modules: {}
 });
