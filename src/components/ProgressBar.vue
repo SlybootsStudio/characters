@@ -1,16 +1,20 @@
 <template>
   <div class="bar-wrapper">
     <div v-if="thin" class="text-center">{{ label }} ({{ amount }})</div>
-    <div class="progress position-relative" :class="{ 'thin-bar': thin }">
+    <div
+      class="border border-secondary progress position-relative"
+      :class="{ 'thin-bar': thin }"
+    >
       <div
-        class="progress-bar"
+        class="progress-bar bg-info"
         role="progressbar"
         :style="{ width: `${progress}%` }"
       >
         <span
           v-if="!thin"
           class="justify-content-center d-flex position-absolute w-100 text-white"
-          >{{ label }} ({{ amount }} / {{ max }})</span
+          >{{ label
+          }}<span v-if="showProgress"> ({{ amount }} / {{ max }})</span></span
         >
       </div>
     </div>
@@ -33,6 +37,10 @@ export default {
     thin: {
       type: Boolean,
       default: false
+    },
+    showProgress: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {

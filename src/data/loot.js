@@ -1,3 +1,15 @@
+export const RESOURCE_ID = {
+  t1Stone: "t1Stone",
+  t2Stone: "t2Stone",
+  t3Stone: "t3Stone",
+  t1Ore: "t1Ore",
+  t2Ore: "t2Ore",
+  t3Ore: "t3Ore",
+  t1Gem: "t1Gem",
+  t2Gem: "t2Gem",
+  t3Gem: "t3Gem"
+};
+
 export const RARITY = {
   common: "common",
   uncommon: "uncommon",

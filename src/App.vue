@@ -1,7 +1,7 @@
 <template>
   <TheHeader />
   <TheNavbar />
-  <div class="container-fluid">
+  <div class="container mt-3">
     <router-view />
   </div>
   <TheFooter v-if="0" />

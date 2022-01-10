@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
+    gold: 10000,
     puppies: 1234,
     earnedPuppies: 0,
     snacks: 4

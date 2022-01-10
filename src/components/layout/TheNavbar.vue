@@ -20,31 +20,11 @@
             <router-link class="btn btn-link" :to="{ name: 'Main' }"
               >Home</router-link
             >
-
-            <router-link class="btn btn-link" :to="{ name: 'Buildings' }"
-              >Buildings</router-link
-            >
-            <router-link class="btn btn-link" :to="{ name: 'Upgrades' }"
-              >Upgrades</router-link
-            >
-            <router-link class="btn btn-link" :to="{ name: 'Achievements' }"
-              >Achievements</router-link
-            >
           </div>
 
           <div class="navbar-md d-sm-none d-none d-md-block">
             <router-link class="btn btn-link me-2" :to="{ name: 'Main' }"
               >Home</router-link
-            >
-
-            <router-link class="btn btn-link me-2" :to="{ name: 'Buildings' }"
-              >Buildings</router-link
-            >
-            <router-link class="btn btn-link me-2" :to="{ name: 'Upgrades' }"
-              >Upgrades</router-link
-            >
-            <router-link class="btn btn-link" :to="{ name: 'Achievements' }"
-              >Achievements</router-link
             >
           </div>
         </div>
